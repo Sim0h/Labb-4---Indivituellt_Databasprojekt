@@ -63,7 +63,7 @@ namespace Labb_4___Indivituellt_Databasprojekt.Models
                 Console.ReadLine();
             }
         }
-        
+
 
         public static void Departments()
         {
@@ -72,7 +72,7 @@ namespace Labb_4___Indivituellt_Databasprojekt.Models
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("\tChoose which Department to show employees");
+                Console.WriteLine("\tChoose which Department to show number of employees");
                 Console.WriteLine("\t1. Teachers");
                 Console.WriteLine("\t2. Principal");
                 Console.WriteLine("\t3. Maintenance");
@@ -87,63 +87,37 @@ namespace Labb_4___Indivituellt_Databasprojekt.Models
                     case "1":
                         {
                             Console.Clear();
-                            var teacher = context.TblPersonals.Where(t => t.Occupation == "Teacher");
-                            Console.WriteLine("\tList of Teachers:");
+                            Console.WriteLine("\tNumber of Teachers:");
                             Console.WriteLine(new string('*', 30));
-                            foreach (TblPersonal t in teacher)
-                            {
-                                Console.WriteLine($"\tPersonel ID: {t.PersonalId}");
-                                Console.WriteLine($"\tFirst Name: {t.Fname}");
-                                Console.WriteLine($"\tLast Name: {t.Lname}");
-                                Console.WriteLine($"\tStarting Date: {t.StartWork}");
-                                Console.WriteLine(new string('-', 30));
-                            }
+                            int personCount1 = context.TblPersonals.Count(t => t.Occupation == "Teacher");
+                            Console.WriteLine($"\tThere are currently {personCount1} Teachers Employed.");
+
                         }
                         break;
 
                     case "2":
                         Console.Clear();
-                        var principal = context.TblPersonals.Where(t => t.Occupation == "Principal");
-                        Console.WriteLine("\tList of Principals:");
+
+                        Console.WriteLine("\tNumber of Principals:");
                         Console.WriteLine(new string('*', 30));
-                        foreach (TblPersonal t in principal)
-                        {
-                            Console.WriteLine($"\tPersonel ID: {t.PersonalId}");
-                            Console.WriteLine($"\tFirst Name: {t.Fname}");
-                            Console.WriteLine($"\tLast Name: {t.Lname}");
-                            Console.WriteLine($"\tStarting Date: {t.StartWork}");
-                            Console.WriteLine(new string('-', 30));
-                        }
+                        int personCount2 = context.TblPersonals.Count(t => t.Occupation == "Principal");
+                        Console.WriteLine($"\tThere are currently {personCount2} Principals Employed.");
                         break;
 
                     case "3":
                         Console.Clear();
-                        var janitor = context.TblPersonals.Where(t => t.Occupation == "Janitor");
-                        Console.WriteLine("\tList of Maintenance Personel:");
+                        Console.WriteLine("\tNumber of Janitors:");
                         Console.WriteLine(new string('*', 30));
-                        foreach (TblPersonal t in janitor)
-                        {
-                            Console.WriteLine($"\tPersonel ID: {t.PersonalId}");
-                            Console.WriteLine($"\tFirst Name: {t.Fname}");
-                            Console.WriteLine($"\tLast Name: {t.Lname}");
-                            Console.WriteLine($"\tStarting Date: {t.StartWork}");
-                            Console.WriteLine(new string('-', 30));
-                        }
+                        int personCount3 = context.TblPersonals.Count(t => t.Occupation == "Janitor");
+                        Console.WriteLine($"\tThere are currently {personCount3} Janitors Employed.");
                         break;
 
                     case "4":
                         Console.Clear();
-                        var lunch = context.TblPersonals.Where(t => t.Occupation == "Lunch Lady");
-                        Console.WriteLine("\tList of Kitchen Staff:");
+                        Console.WriteLine("\tNumber of Lunch Ladies:");
                         Console.WriteLine(new string('*', 30));
-                        foreach (TblPersonal t in lunch)
-                        {
-                            Console.WriteLine($"\tPersonel ID: {t.PersonalId}");
-                            Console.WriteLine($"\tFirst Name: {t.Fname}");
-                            Console.WriteLine($"\tLast Name: {t.Lname}");
-                            Console.WriteLine($"\tStarting Date: {t.StartWork}");
-                            Console.WriteLine(new string('-', 30));
-                        }
+                        int personCount = context.TblPersonals.Count(t => t.Occupation == "Lunch Lady");
+                        Console.WriteLine($"\tThere are currently {personCount} Lunch Ladies Employed.");
                         break;
 
                     case "5":
@@ -232,7 +206,7 @@ namespace Labb_4___Indivituellt_Databasprojekt.Models
                                 Console.WriteLine($"\tClass: {s.Class}");
                                 Console.WriteLine(new string('-', 30));
                             }
-                            
+
                         }
                         break;
 
